@@ -50,8 +50,12 @@
         }
 
         function cleanUpList(inputString) {
+            // remove "
+            let listOfStories = inputString.replace(/"/g, '');
+            // remove leading and trailing blanks
+            listOfStories = listOfStories.trim();
             // remove the \n
-            let listOfStories = inputString.replace(/\n/g, '');
+            listOfStories = listOfStories.replace(/\n/g, '');
             let storiesArray = listOfStories.split(',');
             return storiesArray.sort((a, b) => a - b)
         }
